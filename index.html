@@ -2,12 +2,12 @@
 <html lang="es">
 
 <head>
-  <!--todo: meta tags-->
+  <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="author" content="Carls'Dev" />
   <meta name="copyright" content=" Empresa del Oeste 2025" />
   <meta name="keywords"
-    content="VTC,vtc ,euro truck Simulator 2, truckersmp, trucksbook, empresa del oeste, edo, transporte virtual, comunidad ets2, convoyes ets2" />
+    content="VTC, vtc, euro truck Simulator 2, truckersmp, trucksbook, empresa del oeste, edo, transporte virtual, comunidad ets2, convoyes ets2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index" />
   <meta property="og:title" content="Empresa Del Oeste EDO" />
@@ -20,8 +20,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./img/edo_logo (1).jpg" type="image/png" />
-  <link rel="shortcut icon" href="./img/edo_logo (1).jpg" />
+  <link rel="canonical" href="https://empresadeloeste.example/" />
+  <link rel="icon" href="./img/edo_logo (1).jpg" type="image/jpeg" />
+  <link rel="shortcut icon" href="./img/edo_logo (1).jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="./img/edo_logo (1).jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,8 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <div class="logo-text">Empresa Del Oeste | EDO</div>
+      <img src="./img/logo.png" alt="Logo EDO" />
+      <div class="logo-text">Empresa Del Oeste</div>
     </div>
     <a class="apply-btn" href="https://truckersmp.com/vtc/83785" target="_blank" rel="noopener">¡Aplica Ya!</a>
   </header>
@@ -50,6 +52,7 @@
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="#requisitos">Requisitos</a></li>
       <li><a href="#entorno">Entorno</a></li>
+      <li><a href="#eventos">Eventos</a></li>
       <li><a href="#media">Media</a></li>
     </ul>
   </nav>
@@ -58,7 +61,7 @@
   <section class="hero-carousel" id="inicio">
     <div class="carousel-container">
       <div class="slide active">
-        <img src="./img/comboi_1.png" alt="slide 1" />
+        <img src="./img/comboi_1.png" alt="Convoy Empresa Del Oeste" loading="eager" decoding="async" />
         <div class="slide-overlay">
           <div class="slide-content">
             <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>
@@ -69,10 +72,10 @@
         </div>
       </div>
       <div class="slide">
-        <img src="./img/comboi_2.png" alt="slide 2" />
+        <img src="./img/comboi_2.png" alt="Convoy Empresa Del Oeste" loading="lazy" decoding="async" />
         <div class="slide-overlay">
           <div class="slide-content">
-            <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>
+            <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>            
           </div>
           <div class="slide-logo" aria-hidden="false">
             <img src="./img/edo_logo (1).jpg" alt="Logo EDO" />
@@ -80,10 +83,11 @@
         </div>
       </div>
       <div class="slide">
-        <img src="./img/convoy_4(1).png" alt="slide 2" />
+        <img src="./img/convoy_4(1).png" alt="Convoy Empresa Del Oeste" loading="lazy" decoding="async" />
         <div class="slide-overlay">
           <div class="slide-content">
             <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>
+            
           </div>
           <div class="slide-logo" aria-hidden="false">
             <img src="./img/edo_logo (1).jpg" alt="Logo EDO" />
@@ -91,10 +95,11 @@
         </div>
       </div>
       <div class="slide">
-        <img src="./img/convvoy_4(1).png" alt="slide 2" />
+        <img src="./img/convvoy_4(1).png" alt="Convoy Empresa Del Oeste" loading="lazy" decoding="async" />
         <div class="slide-overlay">
           <div class="slide-content">
             <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>
+           
           </div>
           <div class="slide-logo" aria-hidden="false">
             <img src="./img/edo_logo (1).jpg" alt="Logo EDO" />
@@ -102,10 +107,10 @@
         </div>
       </div>
       <div class="slide">
-        <img src="./img/comboi_3.png" alt="slide 3" />
+        <img src="./img/comboi_3.png" alt="Convoy Empresa Del Oeste" loading="lazy" decoding="async" />
         <div class="slide-overlay">
           <div class="slide-content">
-            <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>
+            <h1 class="title-enter" data-anim="fadeInDown">Empresa Del Oeste</h1>            
           </div>
           <div class="slide-logo" aria-hidden="false">
             <img src="./img/edo_logo (1).jpg" alt="Logo EDO" />
@@ -113,13 +118,20 @@
         </div>
       </div>
     </div>
-
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button class="indicator active" data-index="0" aria-label="Ir a slide 1"></button>
+      <button class="indicator" data-index="1" aria-label="Ir a slide 2"></button>
+      <button class="indicator" data-index="2" aria-label="Ir a slide 3"></button>
+      <button class="indicator" data-index="3" aria-label="Ir a slide 4"></button>
+      <button class="indicator" data-index="4" aria-label="Ir a slide 5"></button>
+    </div>
   </section>
 
   <!-- MAIN CONTENT -->
   <main>
     <!-- INTRO -->
-    <section class="intro-section" id="inicio">
+    <section class="intro-section">
       <p class="slogan">-Pasión por la excelencia-</p>
       <p>
         Empresa del Oeste es una compañía virtual de transporte en Euro Truck
@@ -134,10 +146,10 @@
     <section id="equipo">
       <h2 class="title-enter" data-anim="fadeInUp">Nuestro Equipo de Staff</h2>
       <div class="grid staff-grid">
-        <!--todo:  Owner -->
+        <!-- Owner -->
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="Owner Danilo">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Danilo" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Danilo" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">Owner</span>
           <h3>Danilo</h3>
@@ -148,10 +160,10 @@
           </a>
         </div>
 
-        <!--todo:  CEO Marco -->
+        <!-- CEO Marco -->
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="CEO Marco">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Marco" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Marco" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">CEO</span>
           <h3>Marco</h3>
@@ -162,10 +174,10 @@
           </a>
         </div>
 
-        <!--todo:  CEO Mr Comodoro -->
+        <!-- CEO Mr Comodoro -->
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="CEO Mr Comodoro">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Mr Comodoro" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Mr Comodoro" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">CEO</span>
           <h3>Mr Comodoro</h3>
@@ -176,11 +188,11 @@
           </a>
         </div>
 
-        <!--todo:  Administrator Kaioovsky -->
+        <!-- Administrator Kaioovsky -->
 
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="Administrator Kaioovsky">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Kaioovsky" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Kaioovsky" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">Administrator</span>
           <h3>Kaioovsky</h3>
@@ -191,11 +203,11 @@
           </a>
         </div>
 
-        <!--todo:  Developer Charles -->
+        <!-- Administrator Charles -->
 
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="Administrator Charles">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Charles" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Charles" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">Administrator</span>
           <h3>The Charles</h3>
@@ -206,20 +218,89 @@
           </a>
         </div>
 
-        <!--todo:  Administrator Tomi -->
+        <!-- Event Team Tomi -->
 
         <div class="card staff-card animate__animated animate__fadeInUp" aria-label="Event Team Tomi">
           <div class="staff-avatar">
-            <img src="./img/Staff_EDO.png" alt="Foto de Tomi" />
+            <img src="./img/Staff_EDO.png" alt="Foto de Tomi" loading="lazy" decoding="async" />
           </div>
           <span class="role-badge">Event Team</span>
-          <h3>Thomii</h3>
+          <h3>Tomi</h3>
           <a class="staff-link" href="https://truckersmp.com/user/2653804" target="_blank" rel="noopener"
             aria-label="Perfil de Tomi en TruckersMP">
             <i class="fa-solid fa-user"></i>
             Ver Perfil
           </a>
         </div>
+      </div>
+    </section>
+    <!-- PARTNERS SECTION  -->
+    <section id="partners">
+      <h2 class="title-enter" data-anim="fadeInUp">Nuestros Partners</h2>
+      <div class="grid partners-grid">
+        <div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner Chapulines">
+          <div class="partner-logo">
+            <img src="./img/Vintara_VTC.png" alt="Chapulines - Plataforma de gestión" loading="lazy" decoding="async" />
+          </div>
+          <span class="partner-badge">VTC</span>
+          <h3>Vintara VTC</h3>
+          <p>Partner de Empresa del Oeste EDO</p>
+          <a class="partner-link" href="https://truckersmp.com/vtc/81636" target="_blank" rel="noopener">Visitar</a>
+        </div>
+        <!--
+<div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner TruckersMP">
+          <div class="partner-logo">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+          <span class="partner-badge">Multiplayer</span>
+          <h3>TruckersMP</h3>
+          <p>Convoyes y eventos en la red multijugador de ETS2.</p>
+          <a class="partner-link" href="https://truckersmp.com/vtc/83785" target="_blank" rel="noopener">Visitar</a>
+        </div>
+
+        <div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner Discord">
+          <div class="partner-logo">
+            <i class="fa-brands fa-discord"></i>
+          </div>
+          <span class="partner-badge">Comunidad</span>
+          <h3>Discord</h3>
+          <p>Comunicación, coordinación y buen ambiente entre todos.</p>
+          <a class="partner-link" href="https://discord.gg/EfaGRFe3" target="_blank" rel="noopener">Unirse</a>
+        </div>
+
+        <div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner Steam">
+          <div class="partner-logo">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <span class="partner-badge">Plataforma</span>
+          <h3>Steam</h3>
+          <p>Base de juego y contenido para Euro Truck Simulator 2.</p>
+          <a class="partner-link" href="https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/"
+            target="_blank" rel="noopener">Ver</a>
+        </div>
+
+        <div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner YouTube">
+          <div class="partner-logo">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <span class="partner-badge">Media</span>
+          <h3>YouTube</h3>
+          <p>Recuerdos, convoyes y momentos épicos de nuestra comunidad.</p>
+          <a class="partner-link" href="https://www.youtube.com/@EmpresadelOesteVTC" target="_blank" rel="noopener">Ver
+            Canal</a>
+        </div>
+
+        <div class="card partner-card animate__animated animate__fadeInUp" aria-label="Partner Instagram">
+          <div class="partner-logo">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <span class="partner-badge">Media</span>
+          <h3>Instagram</h3>
+          <p>Fotos y novedades de Empresa del Oeste día a día.</p>
+          <a class="partner-link" href="https://www.instagram.com/empresadeloestevtc/" target="_blank"
+            rel="noopener">Ver Perfil</a>
+        </div>
+-->
       </div>
     </section>
 
@@ -245,7 +326,8 @@
       <h2 class="title-enter" data-anim="fadeInUp">Lo Que Ofrecemos</h2>
       <div class="grid">
         <div class="card">
-          <h3>🚛 Convoyes Diarios</h3>
+          <h3><i class="fa-solid fa-truck-moving" style="color: var(--accent); margin-right: 8px;"></i> Convoyes Diarios
+          </h3>
           <p>
             En Empresa del Oeste, los convoyes son una parte esencial de
             nuestra cultura. Organizamos convoyes diarios para fomentar la
@@ -255,7 +337,7 @@
           </p>
         </div>
         <div class="card">
-          <h3>👥 Comunidad</h3>
+          <h3><i class="fa-solid fa-users" style="color: var(--accent); margin-right: 8px;"></i> Comunidad</h3>
           <p>
             Nuestra comunidad está formada por apasionados del transporte
             virtual que comparten la misma pasión por la conducción y la
@@ -264,7 +346,8 @@
           </p>
         </div>
         <div class="card">
-          <h3>🛡️ Conducción Segura</h3>
+          <h3><i class="fa-solid fa-shield-halved" style="color: var(--accent); margin-right: 8px;"></i> Conducción
+            Segura</h3>
           <p>
             Para nosotros, la seguridad y la buena conducción son
             primordiales. Esperamos que todos nuestros miembros mantengan
@@ -274,30 +357,65 @@
         </div>
       </div>
     </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="eventos">
+      <h2 class="title-enter" data-anim="fadeInUp">Próximos Eventos</h2>
+      <div class="events-grid" id="events-loader">
+        <p style="text-align:center; width:100%;">Cargando eventos...</p>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
   <footer id="media">
     <h3 class="title-enter" data-anim="fadeInUp">Síguenos en Nuestras Redes Sociales</h3>
     <div class="social-buttons">
-      <a href="https://www.instagram.com/empresadeloestevtc/" target="_blank" class="social-btn" title="Instagram">
+      <a href="https://www.instagram.com/empresadeloestevtc/" target="_blank" rel="noopener noreferrer"
+        class="social-btn" title="Instagram">
         <i class="fa-brands fa-instagram"></i>
       </a>
-      <a href="https://www.youtube.com/@EmpresadelOesteVTC" target="_blank" class="social-btn" title="YouTube">
+      <a href="https://www.youtube.com/@EmpresadelOesteVTC" target="_blank" rel="noopener noreferrer" class="social-btn"
+        title="YouTube">
         <i class="fa-brands fa-youtube"></i>
       </a>
-      <a href="https://discord.gg/EfaGRFe3" target="_blank" class="social-btn" title="Discord">
+      <a href="https://discord.gg/EfaGRFe3" target="_blank" rel="noopener noreferrer" class="social-btn"
+        title="Discord">
         <i class="fa-brands fa-discord"></i>
       </a>
-      <a href="https://trucksbook.eu/company/215284" target="_blank" class="social-btn" title="Truckbook">
+      <a href="https://trucksbook.eu/company/215284" target="_blank" rel="noopener noreferrer" class="social-btn"
+        title="Truckbook">
         <i class="fa-solid fa-book"></i>
       </a>
-      <a href="https://truckersmp.com/vtc/83785" target="_blank" class="social-btn" title="TruckersMP">
+      <a href="https://truckersmp.com/vtc/83785" target="_blank" rel="noopener noreferrer" class="social-btn"
+        title="TruckersMP">
         <i class="fa-solid fa-truck"></i>
       </a>
     </div>
+
+    <!-- Admin Access Button -->
+    <div style="margin-top: 2rem;">
+      <button id="admin-access-btn" class="admin-btn" title="Acceso Administrador">
+        <i class="fa-solid fa-lock"></i> Panel de Administración
+      </button>
+    </div>
+
     <p>&copy; 2025 Empresa Del Oeste. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Admin Login Modal -->
+  <div id="admin-modal" class="admin-modal">
+    <div class="admin-modal-content">
+      <span class="admin-close">&times;</span>
+      <h2><i class="fa-solid fa-shield-halved"></i> Acceso Restringido</h2>
+      <p>Introduce la contraseña de administrador para acceder al panel de gestión de eventos.</p>
+      <input type="password" id="admin-password" placeholder="Contraseña" autocomplete="off">
+      <button id="admin-login-btn" class="admin-login-btn">
+        <i class="fa-solid fa-right-to-bracket"></i> Acceder
+      </button>
+      <p id="admin-error" class="admin-error"></p>
+    </div>
+  </div>
 
   <script src="Main.js" defer></script>
 

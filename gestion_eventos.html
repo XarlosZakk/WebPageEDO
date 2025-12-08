@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - EDO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #750c17;
+            --secondary: #0047ab;
+            --dark: #0a0e27;
+            --light: #f8f9fa;
+            --accent: #ff4d4d;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-save {
+            background: #28a745;
+        }
+
+        .btn-save:hover {
+            background: #218838;
+        }
+
+        .btn-add {
+            background: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            padding: 0.5rem 1rem;
+        }
+
+        .event-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .event-item {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            border: 1px solid #444;
+        }
+
+        .event-preview img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .event-form {
+            display: grid;
+            gap: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: #3d3d3d;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 5px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .help-box {
+            background: rgba(0, 71, 171, 0.2);
+            padding: 1rem;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-btn:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateX(-3px);
+        }
+
+        header>div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login-screen" style="text-align: center; margin-top: 100px;">
+        <h2>Acceso Restringido</h2>
+        <p>Introduce la contraseña de administrador</p>
+        <input type="password" id="password" style="max-width: 300px; margin: 1rem auto; display: block;">
+        <button class="btn btn-add" onclick="checkAuth()">Entrar</button>
+    </div>
+
+    <div class="container" id="admin-panel" style="display: none;">
+        <header>
+            <div>
+                <h1>Gestión de Eventos EDO</h1>
+                <a href="index.html" class="back-btn" title="Volver al sitio web">
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Sitio
+                </a>
+            </div>
+            <button class="btn btn-save" onclick="downloadJSON()">
+                <i class="fa-solid fa-download"></i> Guardar Cambios (Descargar JSON)
+            </button>
+        </header>
+
+        <div class="help-box">
+            <h3>Instrucciones:</h3>
+            <ol>
+                <li>Edita o agrega eventos aquí.</li>
+                <li>Haz clic en <strong>"Guardar Cambios"</strong>.</li>
+                <li>Se descargará un archivo llamado <code>events.json</code>.</li>
+                <li>Reemplaza el archivo <code>events.json</code> original en tu carpeta del proyecto con este nuevo.
+                </li>
+            </ol>
+        </div>
+
+        <button class="btn btn-add" onclick="addEvent()">+ Nuevo Evento</button>
+
+        <div id="events-container" class="event-list">
+            <!-- Events injected here -->
+        </div>
+    </div>
+
+    <script>
+        // Simple auth
+        function checkAuth() {
+            const p = document.getElementById('password').value;
+            if (p === 'EDO2025') { // Simple password for user convenience
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+                loadEvents();
+            } else {
+                alert('Contraseña incorrecta');
+            }
+        }
+
+        let events = [];
+
+        async function loadEvents() {
+            try {
+                const response = await fetch('events.json');
+                events = await response.json();
+                render();
+            } catch (e) {
+                console.error("Error loading events", e);
+                alert("No se pudo cargar events.json. Asegúrate de ejecutar esto en un servidor local o tener el archivo.");
+                // Fallback for first run if file missing
+                events = [];
+                render();
+            }
+        }
+
+        function render() {
+            const container = document.getElementById('events-container');
+            container.innerHTML = '';
+
+            events.forEach((ev, index) => {
+                const el = document.createElement('div');
+                el.className = 'event-item';
+                el.innerHTML = `
+          <div class="event-preview">
+            <img src="${ev.image || './img/edo_logo (1).jpg'}" alt="Preview">
+          </div>
+          <div class="event-form">
+            <label>Título:</label>
+            <input type="text" value="${ev.title}" onchange="updateEvent(${index}, 'title', this.value)">
+            
+            <label>Fecha:</label>
+            <input type="text" value="${ev.date}" placeholder="Ej: 2025-12-20 15:00 UTC" onchange="updateEvent(${index}, 'date', this.value)">
+            
+            <label>Descripción:</label>
+            <textarea onchange="updateEvent(${index}, 'description', this.value)">${ev.description}</textarea>
+            
+            <label>Imagen URL (Ruta local o Link):</label>
+            <input type="text" value="${ev.image}" onchange="updateEvent(${index}, 'image', this.value)">
+            
+            <label>Enlace Info:</label>
+            <input type="text" value="${ev.link}" onchange="updateEvent(${index}, 'link', this.value)">
+          </div>
+          <div>
+            <button class="btn btn-delete" onclick="deleteEvent(${index})"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        `;
+                container.appendChild(el);
+            });
+        }
+
+        window.updateEvent = (index, field, value) => {
+            events[index][field] = value;
+        };
+
+        window.addEvent = () => {
+            events.unshift({
+                id: Date.now(),
+                title: "Nuevo Evento",
+                date: "2025-MM-DD",
+                description: "Descripción del evento...",
+                image: "./img/edo_logo (1).jpg",
+                link: "#"
+            });
+            render();
+        };
+
+        window.deleteEvent = (index) => {
+            if (confirm('¿Borrar este evento?')) {
+                events.splice(index, 1);
+                render();
+            }
+        };
+
+        window.downloadJSON = async () => {
+            // Filter out past events before saving
+            const now = new Date();
+            const activeEvents = events.filter(event => {
+                try {
+                    const eventDate = new Date(event.date);
+                    return eventDate >= now;
+                } catch (e) {
+                    // If date parsing fails, keep the event
+                    return true;
+                }
+            });
+
+            try {
+                // Save to server
+                const response = await fetch('http://localhost:3000/api/save-events', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(activeEvents)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const deletedCount = events.length - activeEvents.length;
+                    if (deletedCount > 0) {
+                        alert(`✅ Eventos guardados automáticamente. Se eliminaron ${deletedCount} evento(s) pasado(s).`);
+                    } else {
+                        alert('✅ Eventos guardados automáticamente en events.json');
+                    }
+
+                    // Update local events array
+                    events = activeEvents;
+                    render();
+                } else {
+                    alert('❌ Error al guardar: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Error de conexión. Asegúrate de que el servidor esté ejecutándose.\n\nEjecuta: npm start');
+            }
+        };
+    </script>
+</body>
+
+</html>
