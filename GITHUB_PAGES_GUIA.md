@@ -52,7 +52,7 @@ npm start
 
 ### Paso 2: Accede al Panel
 - Abre: http://localhost:3000/gestion_eventos.html
-- Contraseña: **EDO2025**
+- Contraseña: **#######**
 - Edita/agrega/elimina eventos
 - Haz clic en "Guardar Cambios"
 

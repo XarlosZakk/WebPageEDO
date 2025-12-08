@@ -26,7 +26,7 @@ Verás un mensaje como:
 
 1. Asegúrate de que el servidor esté ejecutándose
 2. Abre: http://localhost:3000/gestion_eventos.html
-3. Ingresa la contraseña: **EDO2025**
+3. Ingresa la contraseña: **#######**
 4. Agrega/edita/elimina eventos
 5. Haz clic en "Guardar Cambios"
 6. ¡Los cambios se guardan automáticamente en `events.json`!
