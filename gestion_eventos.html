@@ -208,15 +208,27 @@
 
         async function loadEvents() {
             try {
-                const response = await fetch('events.json');
-                events = await response.json();
+                // Intentar cargar desde API primero
+                const response = await fetch('/api/events');
+                if (response.ok) {
+                    events = await response.json();
+                } else {
+                    // Fallback a archivo estático si API falla
+                    const staticResponse = await fetch('events.json');
+                    events = await staticResponse.json();
+                }
                 render();
             } catch (e) {
                 console.error("Error loading events", e);
-                alert("No se pudo cargar events.json. Asegúrate de ejecutar esto en un servidor local o tener el archivo.");
-                // Fallback for first run if file missing
-                events = [];
-                render();
+                // Fallback para primera ejecución si el archivo no existe
+                try {
+                    const staticResponse = await fetch('events.json');
+                    events = await staticResponse.json();
+                    render();
+                } catch (e2) {
+                    events = [];
+                    render();
+                }
             }
         }
 
@@ -293,7 +305,7 @@
 
             try {
                 // Save to server
-                const response = await fetch('http://localhost:3000/api/save-events', {
+                const response = await fetch('/api/save-events', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
