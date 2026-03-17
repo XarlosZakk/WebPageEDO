@@ -311,24 +311,40 @@
 (function () {
   "use strict";
 
+  async function fetchEvents() {
+    // Try API endpoint first (works with local Express server)
+    try {
+      const apiResponse = await fetch("/api/events");
+      if (apiResponse.ok) {
+        const data = await apiResponse.json();
+        if (Array.isArray(data)) return data;
+      }
+    } catch (e) {
+      console.warn("API /api/events no disponible, intentando archivo estático...");
+    }
+
+    // Fallback: fetch static JSON file (works on Netlify and any static hosting)
+    const staticResponse = await fetch("/data/events.json");
+    if (!staticResponse.ok) throw new Error("No se pudieron cargar los eventos");
+    return await staticResponse.json();
+  }
+
   async function loadEvents() {
     const container = document.getElementById("events-loader");
     if (!container) return;
 
     try {
-      const response = await fetch("/api/events");
-      if (!response.ok) throw new Error("No se pudo cargar eventos de la API");
-
-      let events = await response.json();
+      let events = await fetchEvents();
 
       // Filter out past events
       const now = new Date();
       events = events.filter(event => {
         try {
           const eventDate = new Date(event.date);
+          // Add 1 day buffer so events show on their actual date
+          eventDate.setDate(eventDate.getDate() + 1);
           return eventDate >= now;
         } catch (e) {
-          // If date parsing fails, show the event
           return true;
         }
       });

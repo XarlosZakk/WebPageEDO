@@ -3,15 +3,21 @@ const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
-    // Para desarrollo local con netlify-cli, leer desde data/events.json
-    // En producción, esto servirá los datos compilados
-    const filePath = path.join(process.cwd(), "data", "events.json");
-    
+    // Try multiple possible paths for the events.json file
+    const possiblePaths = [
+      path.resolve(__dirname, "../../data/events.json"),
+      path.join(process.cwd(), "data", "events.json"),
+      path.resolve(__dirname, "data", "events.json"),
+    ];
+
     let events = [];
-    
-    if (fs.existsSync(filePath)) {
-      const data = fs.readFileSync(filePath, "utf8");
-      events = JSON.parse(data);
+
+    for (const filePath of possiblePaths) {
+      if (fs.existsSync(filePath)) {
+        const data = fs.readFileSync(filePath, "utf8");
+        events = JSON.parse(data);
+        break;
+      }
     }
 
     return {

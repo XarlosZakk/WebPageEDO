@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1773776047624,
+    "title": "Convoy Julio",
+    "date": "2026-07-24",
+    "description": "¡Hola a todos! 🚛 Empresa Del Oeste se complace en invitarte a nuestro Evento de Julio, un emocionante recorrido por las carreteras de Euro Truck Simulator 2. Este evento estará organizado por nuestro equipo de Empresa del Oeste, junto con la participación de nuestras aliados VTC y nuestra comunidad mundial",
+    "image": "./img/JULIO.png",
+    "link": "https://truckersmp.com/events/33778-convoy-julio"
+  },
+  {
+    "id": 1773775970273,
+    "title": "CONVOY JUNIO",
+    "date": "2026-06-06",
+    "description": "Hola a todos! 🚛 Empresa Del Oeste se complace en invitarte a nuestro Evento de Junio, un emocionante recorrido por las carreteras de Euro Truck Simulator 2. Este evento estará organizado por nuestro equipo de Empresa del Oeste, junto con la participación de nuestras aliados VTC y nuestra comunidad mundial",
+    "image": "./img/junio.png",
+    "link": "https://truckersmp.com/events/32429-convoy-junio"
+  },
+  {
+    "id": 1773775748128,
+    "title": "Convoy Mayo",
+    "date": "2026-05-29",
+    "description": "¡Empresa Del Oeste! Te Invita al Evento de Apertura. ¡Hola a todos! 🚛 Empresa Del Oeste se complace en invitarte a nuestro Julio, un emocionante recorrido por las carreteras de Euro Truck Simulator 2. Este evento estará organizado por nuestro equipo de Empresa del Oeste, junto con la participación de nuestras aliados VTC y nuestra comunidad mundial",
+    "image": "./img/mayo.png",
+    "link": "https://truckersmp.com/events/33734-convoy-mayo"
+  },
+  {
+    "id": 1773774432031,
+    "title": "Convoy Abril",
+    "date": "2026-04-24",
+    "description": "¡Hola a todos! 🚛 Empresa Del Oeste se complace en invitarte a nuestro Evento de Abril, un emocionante recorrido por las carreteras de Euro Truck Simulator 2. Este evento estará organizado por nuestro equipo de Empresa del Oeste, junto con la participación de nuestras aliados VTC y nuestra comunidad mundial",
+    "image": "./img/Abril.png",
+    "link": "https://truckersmp.com/events/33353-convoy-abril"
+  }
+]

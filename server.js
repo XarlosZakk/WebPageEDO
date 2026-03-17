@@ -40,8 +40,17 @@ app.post("/api/save-events", (req, res) => {
   try {
     const events = req.body;
     const filePath = path.join(__dirname, "data", "events.json");
+    const publicFilePath = path.join(__dirname, "public", "data", "events.json");
 
-    fs.writeFileSync(filePath, JSON.stringify(events, null, 2), "utf8");
+    // Ensure directories exist
+    const dataDir = path.join(__dirname, "data");
+    const publicDataDir = path.join(__dirname, "public", "data");
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(publicDataDir)) fs.mkdirSync(publicDataDir, { recursive: true });
+
+    const jsonData = JSON.stringify(events, null, 2);
+    fs.writeFileSync(filePath, jsonData, "utf8");
+    fs.writeFileSync(publicFilePath, jsonData, "utf8");
 
     res.json({
       success: true,

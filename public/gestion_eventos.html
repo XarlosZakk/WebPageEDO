@@ -214,15 +214,15 @@
                     events = await response.json();
                 } else {
                     // Fallback a archivo estático si API falla
-                    const staticResponse = await fetch('/api/events');
+                    const staticResponse = await fetch('/data/events.json');
                     events = await staticResponse.json();
                 }
                 render();
             } catch (e) {
                 console.error("Error loading events", e);
-                // Fallback para primera ejecución si el archivo no existe
+                // Fallback a archivo estático
                 try {
-                    const staticResponse = await fetch('/api/events');
+                    const staticResponse = await fetch('/data/events.json');
                     events = await staticResponse.json();
                     render();
                 } catch (e2) {
