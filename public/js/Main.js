@@ -316,8 +316,8 @@
     if (!container) return;
 
     try {
-      const response = await fetch("events.json");
-      if (!response.ok) throw new Error("No se pudo cargar events.json");
+      const response = await fetch("/api/events");
+      if (!response.ok) throw new Error("No se pudo cargar eventos de la API");
 
       let events = await response.json();
 

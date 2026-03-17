@@ -10,12 +10,12 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "public")));
 
 // API endpoint to get events
 app.get("/api/events", (req, res) => {
   try {
-    const filePath = path.join(__dirname, "events.json");
+    const filePath = path.join(__dirname, "data", "events.json");
 
     // Verificar si el archivo existe
     if (!fs.existsSync(filePath)) {
@@ -39,7 +39,7 @@ app.get("/api/events", (req, res) => {
 app.post("/api/save-events", (req, res) => {
   try {
     const events = req.body;
-    const filePath = path.join(__dirname, "events.json");
+    const filePath = path.join(__dirname, "data", "events.json");
 
     fs.writeFileSync(filePath, JSON.stringify(events, null, 2), "utf8");
 

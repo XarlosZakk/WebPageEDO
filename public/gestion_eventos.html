@@ -214,7 +214,7 @@
                     events = await response.json();
                 } else {
                     // Fallback a archivo estático si API falla
-                    const staticResponse = await fetch('events.json');
+                    const staticResponse = await fetch('/api/events');
                     events = await staticResponse.json();
                 }
                 render();
@@ -222,7 +222,7 @@
                 console.error("Error loading events", e);
                 // Fallback para primera ejecución si el archivo no existe
                 try {
-                    const staticResponse = await fetch('events.json');
+                    const staticResponse = await fetch('/api/events');
                     events = await staticResponse.json();
                     render();
                 } catch (e2) {
@@ -331,7 +331,7 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('❌ Error de conexión. Asegúrate de que el servidor esté ejecutándose.\n\nEjecuta: npm start');
+                alert('❌ Error de conexión. Asegúrate de:\n1. Estar abriendo la página web desde http://localhost:3000/gestion_eventos.html y NO desde el archivo local.\n2. El servidor esté ejecutándose. (npm start)');
             }
         };
     </script>
