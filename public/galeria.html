@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Carls'Dev" />
+    <meta name="description" content="Galería de imágenes de Empresa Del Oeste - Convoyes, eventos y momentos de nuestra comunidad en Euro Truck Simulator 2" />
+    <meta property="og:title" content="Galería - Empresa Del Oeste EDO" />
+    <meta property="og:description" content="Explora nuestra galería de convoyes y eventos en Euro Truck Simulator 2" />
+    <meta property="og:image" content="./img/logo.png" />
+    <meta name="theme-color" content="#750c17" />
+
+    <link rel="icon" href="./img/edo_logo (1).jpg" type="image/jpeg" />
+    <link rel="shortcut icon" href="./img/edo_logo (1).jpg" type="image/jpeg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Galería - Empresa Del Oeste EDO</title>
+    <link rel="stylesheet" href="css/galeria.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="./img/logo.png" alt="Logo EDO" />
+        <div class="logo-text">Empresa Del Oeste</div>
+      </div>
+      <a class="back-btn" href="./index.html">
+        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+      </a>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="gallery-hero" id="gallery-hero">
+      <div class="hero-bg">
+        <img src="./img/comboi_1.png" alt="Convoy EDO" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>
+          <i class="fa-solid fa-camera-retro"></i>
+          Nuestra Galería
+        </h1>
+        <p>Revive los mejores momentos de nuestros convoyes y eventos</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" id="total-photos">0</span>
+            <span class="stat-label">Fotos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Categorías</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Recuerdos</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-section" id="filter-section">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> Todas
+        </button>
+        <button class="filter-btn" data-filter="convoy">
+          <i class="fa-solid fa-truck-moving"></i> Convoyes
+        </button>
+        <button class="filter-btn" data-filter="event">
+          <i class="fa-solid fa-calendar-star"></i> Eventos
+        </button>
+        <button class="filter-btn" data-filter="community">
+          <i class="fa-solid fa-users"></i> Comunidad
+        </button>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <main class="gallery-main">
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Images will be injected by JS -->
+      </div>
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop"></div>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" />
+        <div class="lightbox-info">
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-desc"></p>
+          <span class="lightbox-counter" id="lightbox-counter"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <a href="./index.html" class="footer-logo">
+          <img src="./img/logo.png" alt="Logo EDO" />
+          <span>Empresa Del Oeste</span>
+        </a>
+        <p>&copy; 2025 Empresa Del Oeste. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      // ========================
+      // GALLERY DATA
+      // ========================
+      // secion de imagenes de la galeria  ==> no tocar si no sabes lo que haces
+      const galleryData = [
+        // ── COMVOYS ──
+        {
+          src: './img/Comvoys/Comvoy_1.png',
+          title: 'Convoy en Marcha',
+          desc: 'La flota EDO avanzando en perfecta formación por las carreteras europeas.',
+          category: 'convoy',
+          size: 'large'
+        },
+        {
+          src: './img/Comvoys/Comvoy_2.png',
+          title: 'Convoy Nocturno',
+          desc: 'Luces brillando en la oscuridad durante un convoy nocturno inolvidable.',
+          category: 'convoy',
+          size: 'medium'
+        },
+        {
+          src: './img/Comvoys/Comvoy_3.jpg',
+          title: 'Ruta del Oeste',
+          desc: 'Atravesando paisajes impresionantes en nuestra ruta insignia.',
+          category: 'convoy',
+          size: 'medium'
+        },
+        {
+          src: './img/Comvoys/Comvoy_4.jpg',
+          title: 'Convoy de Carga Pesada',
+          desc: 'Transportando cargas especiales como un verdadero equipo profesional.',
+          category: 'convoy',
+          size: 'large'
+        },
+        {
+          src: './img/Comvoys/Comvoy_5.png',
+          title: 'Gran Convoy EDO',
+          desc: 'Nuestro convoy principal recorriendo las autopistas con estilo y coordinación.',
+          category: 'convoy',
+          size: 'large'
+        },
+        {
+          src: './img/Comvoys/Comvoy_6.jpg',
+          title: 'Formación Perfecta',
+          desc: 'La disciplina de nuestra flota en cada kilómetro recorrido.',
+          category: 'convoy',
+          size: 'medium'
+        },
+        {
+          src: './img/Comvoys/Comvoy_7.jpg',
+          title: 'Convoy Internacional',
+          desc: 'Cruzando fronteras junto a nuestros partners internacionales.',
+          category: 'convoy',
+          size: 'medium'
+        },
+        {
+          src: './img/Comvoys/comvoy_8.jpg',
+          title: 'Convoy Amanecer',
+          desc: 'Los primeros rayos de sol acompañando nuestra travesía.',
+          category: 'convoy',
+          size: 'large'
+        },
+        {
+          src: './img/Comvoys/comvoy_9.jpg',
+          title: 'Convoy Escénico',
+          desc: 'Recorriendo las rutas más pintorescas de Europa como equipo.',
+          category: 'convoy',
+          size: 'medium'
+        },
+        {
+          src: './img/Comvoys/comvoy_10.jpg',
+          title: 'Convoy Estelar',
+          desc: 'Una de las travesías más memorables de nuestra flota.',
+          category: 'convoy',
+          size: 'medium'
+        },
+
+        // ── EVENTOS ──
+        {
+          src: './img/Eventos/Evento_1.png',
+          title: 'Evento Especial',
+          desc: 'Un evento único que reunió a toda la comunidad EDO.',
+          category: 'event',
+          size: 'large'
+        },
+        {
+          src: './img/Eventos/Evento_2.png',
+          title: 'Evento de Celebración',
+          desc: 'Celebrando un hito importante de la comunidad sobre ruedas.',
+          category: 'event',
+          size: 'medium'
+        },
+        {
+          src: './img/Eventos/evento_3.jpg',
+          title: 'Encuentro de Flotas',
+          desc: 'Exhibición de nuestros mejores vehículos en un evento inolvidable.',
+          category: 'event',
+          size: 'medium'
+        },
+        {
+          src: './img/Eventos/evento_4.jpg',
+          title: 'Evento Comunitario',
+          desc: 'La comunidad unida disfrutando de un gran evento en la carretera.',
+          category: 'event',
+          size: 'large'
+        },
+        {
+          src: './img/Eventos/evento_5.png',
+          title: 'Evento Temático',
+          desc: 'Diversión y compañerismo en uno de nuestros eventos temáticos.',
+          category: 'event',
+          size: 'medium'
+        },
+        {
+          src: './img/Eventos/Evento_6.png',
+          title: 'Gran Evento EDO',
+          desc: 'Uno de los eventos más grandes organizados por Empresa Del Oeste.',
+          category: 'event',
+          size: 'large'
+        },
+        {
+          src: './img/Eventos/Evento_7.png',
+          title: 'Evento de Aniversario',
+          desc: 'Festejando otro año de comunidad, pasión y kilómetros compartidos.',
+          category: 'event',
+          size: 'medium'
+        },
+        {
+          src: './img/Eventos/Evento_8.png',
+          title: 'Evento Nocturno',
+          desc: 'La magia de la noche acompañando un evento espectacular.',
+          category: 'event',
+          size: 'medium'
+        },
+        {
+          src: './img/Eventos/Evento_9.png',
+          title: 'Evento Internacional',
+          desc: 'Participando junto a comunidades de todo el mundo.',
+          category: 'event',
+          size: 'large'
+        },
+
+        // ── COMUNIDAD ──
+        {
+          src: './img/Comunidad/Comunidad_1.png',
+          title: 'Comunidad Unida',
+          desc: 'Los miembros de EDO compartiendo momentos únicos en la carretera.',
+          category: 'community',
+          size: 'large'
+        },
+        {
+          src: './img/Comunidad/Comunidad_2.png',
+          title: 'Espíritu de Equipo',
+          desc: 'El compañerismo que nos define como la mejor comunidad.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_3.png',
+          title: 'Amigos del Camino',
+          desc: 'Lazos de amistad forjados kilómetro a kilómetro.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_4.png',
+          title: 'Familia EDO',
+          desc: 'Más que una comunidad, somos una familia sobre ruedas.',
+          category: 'community',
+          size: 'large'
+        },
+        {
+          src: './img/Comunidad/Comunidad_5.png',
+          title: 'Momentos Compartidos',
+          desc: 'Cada viaje es una oportunidad para crear recuerdos increíbles.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_6.png',
+          title: 'Hermandad Truquera',
+          desc: 'Unidos por la pasión al transporte virtual y la simulación.',
+          category: 'community',
+          size: 'large'
+        },
+        {
+          src: './img/Comunidad/Comunidad_7.png',
+          title: 'Compañeros de Ruta',
+          desc: 'Siempre acompañados en cada aventura sobre la carretera.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_8.png',
+          title: 'Vida en Comunidad',
+          desc: 'El día a día de los miembros más dedicados de EDO.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_9.png',
+          title: 'Unión y Fuerza',
+          desc: 'Juntos somos más fuertes, juntos llegamos más lejos.',
+          category: 'community',
+          size: 'large'
+        },
+        {
+          src: './img/Comunidad/comunidad_10.jpg',
+          title: 'Orgullo EDO',
+          desc: 'El orgullo de pertenecer a la mejor comunidad de transporte.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/comunidad_11.jpg',
+          title: 'Nuevos Horizontes',
+          desc: 'Explorando nuevas rutas y destinos como comunidad.',
+          category: 'community',
+          size: 'medium'
+        },
+        {
+          src: './img/Comunidad/Comunidad_12.png',
+          title: 'Recuerdos Inolvidables',
+          desc: 'Cada foto cuenta una historia de nuestra gran comunidad.',
+          category: 'community',
+          size: 'large'
+        },
+        {
+          src: './img/Comunidad/Comunidad_20.png',
+          title: 'Legado Comunitario',
+          desc: 'Construyendo un legado que perdurará en el tiempo.',
+          category: 'community',
+          size: 'large'
+        }
+      ];
+
+      // ========================
+      // GALLERY RENDERING
+      // ========================
+      const grid = document.getElementById('gallery-grid');
+      const totalPhotos = document.getElementById('total-photos');
+      let currentFilter = 'all';
+      let filteredData = [...galleryData];
+
+      function renderGallery(filter) {
+        currentFilter = filter;
+        filteredData = filter === 'all'
+          ? [...galleryData]
+          : galleryData.filter(img => img.category === filter);
+
+        grid.innerHTML = '';
+        totalPhotos.textContent = filteredData.length;
+
+        filteredData.forEach((img, idx) => {
+          const item = document.createElement('div');
+          item.className = `gallery-item gallery-item--${img.size}`;
+          item.dataset.index = idx;
+          item.style.animationDelay = `${idx * 0.07}s`;
+
+          item.innerHTML = `
+            <div class="gallery-item__inner">
+              <img src="${img.src}" alt="${img.title}" loading="lazy" decoding="async" />
+              <div class="gallery-item__overlay">
+                <div class="gallery-item__info">
+                  <span class="gallery-item__category">${img.category}</span>
+                  <h3 class="gallery-item__title">${img.title}</h3>
+                  <p class="gallery-item__desc">${img.desc}</p>
+                  <span class="gallery-item__view">
+                    <i class="fa-solid fa-expand"></i> Ver imagen
+                  </span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          item.addEventListener('click', () => openLightbox(idx));
+          grid.appendChild(item);
+        });
+
+        // Trigger stagger animation
+        requestAnimationFrame(() => {
+          grid.querySelectorAll('.gallery-item').forEach(el => {
+            el.classList.add('gallery-item--visible');
+          });
+        });
+      }
+
+      // ========================
+      // FILTER BUTTONS
+      // ========================
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderGallery(btn.dataset.filter);
+        });
+      });
+
+      // ========================
+      // LIGHTBOX
+      // ========================
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDesc = document.getElementById('lightbox-desc');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function updateLightbox() {
+        const img = filteredData[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.title;
+        lightboxTitle.textContent = img.title;
+        lightboxDesc.textContent = img.desc;
+        lightboxCounter.textContent = `${currentIndex + 1} / ${filteredData.length}`;
+
+        // Reset animation
+        lightboxImg.style.animation = 'none';
+        lightboxImg.offsetHeight;
+        lightboxImg.style.animation = '';
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % filteredData.length;
+        updateLightbox();
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + filteredData.length) % filteredData.length;
+        updateLightbox();
+      }
+
+      document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+      document.getElementById('lightbox-next').addEventListener('click', nextImage);
+      document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+      document.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      });
+
+      // Touch swipe support
+      let touchStartX = 0;
+      lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? prevImage() : nextImage();
+        }
+      }, { passive: true });
+
+      // ========================
+      // SCROLL ANIMATIONS
+      // ========================
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.filter-section, .gallery-main, footer').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Parallax hero on scroll
+      window.addEventListener('scroll', () => {
+        const hero = document.getElementById('gallery-hero');
+        const scrolled = window.pageYOffset;
+        if (hero) {
+          const bg = hero.querySelector('.hero-bg img');
+          if (bg) bg.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
+        }
+      }, { passive: true });
+
+      // ========================
+      // INIT
+      // ========================
+      renderGallery('all');
+    </script>
+  </body>
+</html>
