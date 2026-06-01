@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Carls'Dev" />
-    <meta name="description" content="Galería de imágenes de Empresa Del Oeste - Convoyes, eventos y momentos de nuestra comunidad en Euro Truck Simulator 2" />
+    <meta
+      name="description"
+      content="Galería de imágenes de Empresa Del Oeste - Convoyes, eventos y momentos de nuestra comunidad en Euro Truck Simulator 2"
+    />
     <meta property="og:title" content="Galería - Empresa Del Oeste EDO" />
-    <meta property="og:description" content="Explora nuestra galería de convoyes y eventos en Euro Truck Simulator 2" />
+    <meta
+      property="og:description"
+      content="Explora nuestra galería de convoyes y eventos en Euro Truck Simulator 2"
+    />
     <meta property="og:image" content="./img/logo.png" />
     <meta name="theme-color" content="#750c17" />
 
@@ -81,16 +87,38 @@
           <i class="fa-solid fa-truck-moving"></i> Convoyes
         </button>
         <button class="filter-btn" data-filter="event">
-          <i class="fa-solid fa-calendar-star"></i> Eventos
+          <i class="fa-solid fa-calendar"></i> Eventos
         </button>
         <button class="filter-btn" data-filter="community">
           <i class="fa-solid fa-users"></i> Comunidad
         </button>
+        <button class="filter-btn filter-btn--ceibo" data-filter="ceibo">
+          <i class="fa-solid fa-map-location-dot"></i> Ceibo EDO
+        </button>
+      </div>
+    </section>
+
+    <!-- CEIBO PROXIMAMENTE BANNER -->
+    <section class="ceibo-banner" id="ceibo-banner" style="display:none;">
+      <div class="ceibo-banner__inner">
+        <div class="ceibo-banner__glow"></div>
+        <div class="ceibo-banner__icon">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <div class="ceibo-banner__badge">PRÓXIMAMENTE</div>
+        <h2 class="ceibo-banner__title">Empresa del Oeste<br><span>llega al Mapa Ceibo</span></h2>
+        <p class="ceibo-banner__desc">
+          Muy pronto podrás explorar las rutas argentinas del Mapa Ceibo junto a toda la comunidad EDO.<br>
+          ¡Mantente atento a nuestras novedades!
+        </p>
+        <div class="ceibo-banner__dots">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </section>
 
     <!-- GALLERY GRID -->
-    <main class="gallery-main">
+    <main class="gallery-main" id="gallery-main">
       <div class="gallery-grid" id="gallery-grid">
         <!-- Images will be injected by JS -->
       </div>
@@ -102,10 +130,18 @@
       <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">
+      <button
+        class="lightbox-nav lightbox-prev"
+        id="lightbox-prev"
+        aria-label="Anterior"
+      >
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente">
+      <button
+        class="lightbox-nav lightbox-next"
+        id="lightbox-next"
+        aria-label="Siguiente"
+      >
         <i class="fa-solid fa-chevron-right"></i>
       </button>
       <div class="lightbox-content">
@@ -137,253 +173,316 @@
       const galleryData = [
         // ── COMVOYS ──
         {
-          src: './img/Comvoys/Comvoy_1.png',
-          title: 'Convoy De Empresa del Oeste',
-          desc: 'Punto de encuentro en espera de la salida del convoy',
-          category: 'convoy',
-          size: 'large'
+          src: "./img/Comvoys/Comvoy_1.png",
+          title: "Convoy De Empresa del Oeste",
+          desc: "Punto de encuentro en espera de la salida del convoy",
+          category: "convoy",
+          size: "large",
         },
         {
-          src: './img/Comvoys/Comvoy_2.png',
-          title: 'Comvoy Por los alpes suizos',
-          desc: 'La flota EDO recorriendo las carreteras de los Alpes suizos.',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/Comvoy_2.png",
+          title: "Comvoy Por los alpes suizos",
+          desc: "La flota EDO recorriendo las carreteras de los Alpes suizos.",
+          category: "convoy",
+          size: "medium",
         },
         {
-          src: './img/Comvoys/Comvoy_3.jpg',
-          title: 'Comvoy de nuestros Parnerths Titanas VTC',
-          desc: 'finalizando la ruta del comvoy de los compañeros de Titanes World VTC',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/Comvoy_3.jpg",
+          title: "Comvoy de nuestros Parnerths Titanas VTC",
+          desc: "finalizando la ruta del comvoy de los compañeros de Titanes World VTC",
+          category: "convoy",
+          size: "medium",
         },
         {
-          src: './img/Comvoys/Comvoy_4.jpg',
-          title: 'Convoy de Titanes World VTC',
-          desc: 'Foto grupal de Empresa del Oeste.',
-          category: 'convoy',
-          size: 'large'
+          src: "./img/Comvoys/Comvoy_4.jpg",
+          title: "Convoy de Titanes World VTC",
+          desc: "Foto grupal de Empresa del Oeste.",
+          category: "convoy",
+          size: "large",
         },
         {
-          src: './img/Comvoys/Comvoy_5.png',
-          title: 'Gran Convoy EDO',
-          desc: 'Nuestro convoy principal recorriendo las autopistas con estilo y coordinación por Alemania.',
-          category: 'convoy',
-          size: 'large'
+          src: "./img/Comvoys/Comvoy_5.png",
+          title: "Gran Convoy EDO",
+          desc: "Nuestro convoy principal recorriendo las autopistas con estilo y coordinación por Alemania.",
+          category: "convoy",
+          size: "large",
         },
         {
-          src: './img/Comvoys/Comvoy_6.jpg',
-          title: 'Formación Perfecta',
-          desc: 'La disciplina de nuestra flota en cada kilómetro recorrido.',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/Comvoy_6.jpg",
+          title: "Formación Perfecta",
+          desc: "La disciplina de nuestra flota en cada kilómetro recorrido.",
+          category: "convoy",
+          size: "medium",
         },
         {
-          src: './img/Comvoys/Comvoy_7.jpg',
-          title: 'Comvoy de los compañeros de LSA VTC',
-          desc: 'Nuestros Drivers a espera de la orden de salida del Comvoy',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/Comvoy_7.jpg",
+          title: "Comvoy de los compañeros de LSA VTC",
+          desc: "Nuestros Drivers a espera de la orden de salida del Comvoy",
+          category: "convoy",
+          size: "medium",
         },
         {
-          src: './img/Comvoys/comvoy_8.jpg',
-          title: 'Convoy por la Ruta del Ban',
-          desc: 'Recorriendo kilometros por la ruta mas peligrosa de TruckersMP.',
-          category: 'convoy',
-          size: 'large'
+          src: "./img/Comvoys/comvoy_8.jpg",
+          title: "Convoy por la Ruta del Ban",
+          desc: "Recorriendo kilometros por la ruta mas peligrosa de TruckersMP.",
+          category: "convoy",
+          size: "large",
         },
         {
-          src: './img/Comvoys/comvoy_9.jpg',
-          title: 'Convoy de Titans World VTC',
-          desc: 'En formacion a la espera de la salida de nuestra VTC junto con Nuestros conductores.',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/comvoy_9.jpg",
+          title: "Convoy de Titans World VTC",
+          desc: "En formacion a la espera de la salida de nuestra VTC junto con Nuestros conductores.",
+          category: "convoy",
+          size: "medium",
         },
         {
-          src: './img/Comvoys/comvoy_10.jpg',
-          title: 'Convoy Titanes World VTC',
-          desc: 'En espera de la salida del comvoy de nuestros amigos de Titans World VTC.',
-          category: 'convoy',
-          size: 'medium'
+          src: "./img/Comvoys/comvoy_10.jpg",
+          title: "Convoy Titanes World VTC",
+          desc: "En espera de la salida del comvoy de nuestros amigos de Titans World VTC.",
+          category: "convoy",
+          size: "medium",
         },
-
+        {
+          src: "./img/Comvoys/convoy_Mayo_1.jpg",
+          title: "Convoy Mayo 2026",
+          desc: "Convoy del mes de Mayo de Empresa del Oeste EDO.",
+          category: "convoy",
+          size: "large",
+        },
+        {
+          src: "./img/Comvoys/Convoy_Mayo_2.jpg",
+          title: "Convoy Mayo 2026",
+          desc: "Convoy del mes de Mayo de Empresa del Oeste EDO.",
+          category: "convoy",
+          size: "large",
+        },
+        {
+          src: "./img/Comvoys/convoy_Mayo_3.png",
+          title: "Convoy Mayo 2026",
+          desc: "Convoy del mes de Mayo de Empresa del Oeste EDO.",
+          category: "convoy",
+          size: "large",
+        },
         // ── EVENTOS ──
         {
-          src: './img/Eventos/Evento_1.png',
-          title: 'Evento Especial',
-          desc: 'Excibicion de vehiculos de Nuestra Empresa EDO.',
-          category: 'event',
-          size: 'large'
+          src: "./img/Eventos/Evento_1.png",
+          title: "Evento Especial",
+          desc: "Excibicion de vehiculos de Nuestra Empresa EDO.",
+          category: "event",
+          size: "large",
         },
         {
-          src: './img/Eventos/Evento_2.png',
-          title: 'Evento de Ruta del Ban',
-          desc: 'Evento de Moderadores de Juego en la ruta del Ban.',
-          category: 'event',
-          size: 'medium'
+          src: "./img/Eventos/Evento_2.png",
+          title: "Evento de Ruta del Ban",
+          desc: "Evento de Moderadores de Juego en la ruta del Ban.",
+          category: "event",
+          size: "medium",
         },
         {
-          src: './img/Eventos/evento_3.jpg',
-          title: 'Exhibición de vehiculos EDO',
-          desc: 'Exhibición de vehiculos con nuestros mienbros de la Empresa Del Oeste.',
-          category: 'event',
-          size: 'medium'
+          src: "./img/Eventos/evento_3.jpg",
+          title: "Exhibición de vehiculos EDO",
+          desc: "Exhibición de vehiculos con nuestros mienbros de la Empresa Del Oeste.",
+          category: "event",
+          size: "medium",
         },
         {
-          src: './img/Eventos/evento_4.jpg',
-          title: 'Evento de Exhibicion',
-          desc: 'Exhibición de vehiculos con nuestros mienbros de la Empresa Del Oeste vtc.',
-          category: 'event',
-          size: 'large'
+          src: "./img/Eventos/evento_4.jpg",
+          title: "Evento de Exhibicion",
+          desc: "Exhibición de vehiculos con nuestros mienbros de la Empresa Del Oeste vtc.",
+          category: "event",
+          size: "large",
         },
         {
-          src: './img/Eventos/evento_5.png',
-          title: 'Evento Buses EDO 2026',
-          desc: 'Viajes por Europa con los Buses de EDO.',
-          category: 'event',
-          size: 'medium'
+          src: "./img/Eventos/evento_5.png",
+          title: "Evento Buses EDO 2026",
+          desc: "Viajes por Europa con los Buses de EDO.",
+          category: "event",
+          size: "medium",
         },
         {
-          src: './img/Eventos/Evento_6.png',
-          title: 'Gran Evento EDO Buses',
-          desc: 'Gran evento de buses organizado por Empresa Del Oeste.',
-          category: 'event',
-          size: 'large'
+          src: "./img/Eventos/Evento_6.png",
+          title: "Gran Evento EDO Buses",
+          desc: "Gran evento de buses organizado por Empresa Del Oeste.",
+          category: "event",
+          size: "large",
         },
         {
-          src: './img/Eventos/Evento_7.png',
-          title: 'Evento de Mapa Ceibo',
-          desc: 'Haciendo rutas por el iconico mapa de Ceibo de Argentina con nuestros miembros.',
-          category: 'event',
-          size: 'medium'
+          src: "./img/Eventos/Evento_7.png",
+          title: "Evento de Mapa Ceibo",
+          desc: "Haciendo rutas por el iconico mapa de Ceibo de Argentina con nuestros miembros.",
+          category: "event",
+          size: "medium",
         },
         {
-          src: './img/Eventos/Evento_8.png',
-          title: 'Evento Ruta del Ban con Game Moderator',
-          desc: 'Orgenización de comvoy por la ruta del Ban con Game Moderator.',
-          category: 'event',
-          size: 'medium'
+          src: "./img/Eventos/Evento_8.png",
+          title: "Evento Ruta del Ban con Game Moderator",
+          desc: "Orgenización de comvoy por la ruta del Ban con Game Moderator.",
+          category: "event",
+          size: "medium",
         },
         {
-          src: './img/Eventos/Evento_9.png',
-          title: 'Evento Llegada del DLC de Nordic Orizon',
-          desc: 'Recorriendo las rutas del Nuevo Dlc Nordic Orizon con nuestros miembros.',
-          category: 'event',
-          size: 'large'
+          src: "./img/Eventos/Evento_9.png",
+          title: "Evento Llegada del DLC de Nordic Orizon",
+          desc: "Recorriendo las rutas del Nuevo Dlc Nordic Orizon con nuestros miembros.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/evento_1e.png",
+          title: "Evento de Participación de Convoy de Otra VTC",
+          desc: "En salida para arrancar el convoy de la empresa anfitriona.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/evento_2e.png",
+          title: "Llegada de nuestro grupo al destino final del convoy.",
+          desc: "Nuestro grupo de EDO llegando al lugar de destino y posterior formación para la toma de foto del Grupo EDO.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/eventoTuning_1.png",
+          title: "Evento de Tuning Privado De Empresa del Oeste",
+          desc: "Reunión de Compañeros de EDO para mostrar su mejor Vehiculo con Tuning.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/eventoTuning_2.png",
+          title: "Los 3 Mejores Camiones de EDO",
+          desc: "Los 3 camiones mas destacados de Nuestra Empresa EDO.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/eventoTuning_3.png",
+          title: "Foto Grupal del Evento de Tuning",
+          desc: "Foto grupal de los miembros de EDO en el evento de Tuning.",
+          category: "event",
+          size: "large",
+        },
+        {
+          src: "./img/Eventos/eventoTuning_4.png",
+          title: "Empresa del Oeste VTC ",
+          desc: "Exhibición de vehículos de Empresa del Oeste VTC.",
+          category: "event",
+          size: "large",
         },
         // ── COMUNIDAD ──
         {
-          src: './img/Comunidad/Comunidad_1.png',
-          title: 'Comunidad Unida',
-          desc: 'Los miembros de EDO compartiendo momentos únicos en la carretera.',
-          category: 'community',
-          size: 'large'
+          src: "./img/Comunidad/Comunidad_1.png",
+          title: "Comunidad Unida",
+          desc: "Los miembros de EDO compartiendo momentos únicos en la carretera.",
+          category: "community",
+          size: "large",
         },
         {
-          src: './img/Comunidad/Comunidad_2.png',
-          title: 'Espíritu de Equipo',
-          desc: 'El compañerismo que nos define como la mejor comunidad.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/Comunidad_2.png",
+          title: "Espíritu de Equipo",
+          desc: "El compañerismo que nos define como la mejor comunidad.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_3.png',
-          title: 'Amigos del Camino',
-          desc: 'Lazos de amistad forjados kilómetro a kilómetro.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/Comunidad_3.png",
+          title: "Amigos del Camino",
+          desc: "Lazos de amistad forjados kilómetro a kilómetro.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_4.png',
-          title: 'Familia EDO',
-          desc: 'Más que una comunidad, somos una familia sobre ruedas.',
-          category: 'community',
-          size: 'large'
+          src: "./img/Comunidad/Comunidad_4.png",
+          title: "Familia EDO",
+          desc: "Más que una comunidad, somos una familia sobre ruedas.",
+          category: "community",
+          size: "large",
         },
         {
-          src: './img/Comunidad/Comunidad_5.png',
-          title: 'Momentos Compartidos',
-          desc: 'Cada viaje es una oportunidad para crear recuerdos increíbles.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/Comunidad_5.png",
+          title: "Momentos Compartidos",
+          desc: "Cada viaje es una oportunidad para crear recuerdos increíbles.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_6.png',
-          title: 'Hermandad Truquera',
-          desc: 'Unidos por la pasión al transporte virtual y la simulación.',
-          category: 'community',
-          size: 'large'
+          src: "./img/Comunidad/Comunidad_6.png",
+          title: "Hermandad Truquera",
+          desc: "Unidos por la pasión al transporte virtual y la simulación.",
+          category: "community",
+          size: "large",
         },
         {
-          src: './img/Comunidad/Comunidad_7.png',
-          title: 'Compañeros de Ruta',
-          desc: 'Siempre acompañados en cada aventura sobre la carretera.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/Comunidad_7.png",
+          title: "Compañeros de Ruta",
+          desc: "Siempre acompañados en cada aventura sobre la carretera.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_8.png',
-          title: 'Vida en Comunidad',
-          desc: 'El día a día de los miembros más dedicados de EDO.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/Comunidad_8.png",
+          title: "Vida en Comunidad",
+          desc: "El día a día de los miembros más dedicados de EDO.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_9.png',
-          title: 'Unión y Fuerza',
-          desc: 'Juntos somos más fuertes, juntos llegamos más lejos.',
-          category: 'community',
-          size: 'large'
+          src: "./img/Comunidad/Comunidad_9.png",
+          title: "Unión y Fuerza",
+          desc: "Juntos somos más fuertes, juntos llegamos más lejos.",
+          category: "community",
+          size: "large",
         },
         {
-          src: './img/Comunidad/comunidad_10.jpg',
-          title: 'Orgullo EDO',
-          desc: 'El orgullo de pertenecer a la mejor comunidad de transporte.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/comunidad_10.jpg",
+          title: "Orgullo EDO",
+          desc: "El orgullo de pertenecer a la mejor comunidad de transporte.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/comunidad_11.jpg',
-          title: 'Nuevos Horizontes',
-          desc: 'Explorando nuevas rutas y destinos como comunidad.',
-          category: 'community',
-          size: 'medium'
+          src: "./img/Comunidad/comunidad_11.jpg",
+          title: "Nuevos Horizontes",
+          desc: "Explorando nuevas rutas y destinos como comunidad.",
+          category: "community",
+          size: "medium",
         },
         {
-          src: './img/Comunidad/Comunidad_12.png',
-          title: 'Recuerdos Inolvidables',
-          desc: 'Cada foto cuenta una historia de nuestra gran comunidad.',
-          category: 'community',
-          size: 'large'
+          src: "./img/Comunidad/Comunidad_12.png",
+          title: "Recuerdos Inolvidables",
+          desc: "Cada foto cuenta una historia de nuestra gran comunidad.",
+          category: "community",
+          size: "large",
         },
         {
-          src: './img/Comunidad/Comunidad_20.png',
-          title: 'Legado Comunitario',
-          desc: 'Construyendo un legado que perdurará en el tiempo.',
-          category: 'community',
-          size: 'large'
-        }
+          src: "./img/Comunidad/Comunidad_20.png",
+          title: "Legado Comunitario",
+          desc: "Construyendo un legado que perdurará en el tiempo.",
+          category: "community",
+          size: "large",
+        },
       ];
 
       // ========================
       // GALLERY RENDERING
       // ========================
-      const grid = document.getElementById('gallery-grid');
-      const totalPhotos = document.getElementById('total-photos');
-      let currentFilter = 'all';
+      const grid = document.getElementById("gallery-grid");
+      const totalPhotos = document.getElementById("total-photos");
+      let currentFilter = "all";
       let filteredData = [...galleryData];
 
       function renderGallery(filter) {
         currentFilter = filter;
-        filteredData = filter === 'all'
-          ? [...galleryData]
-          : galleryData.filter(img => img.category === filter);
+        filteredData =
+          filter === "all"
+            ? [...galleryData]
+            : galleryData.filter((img) => img.category === filter);
 
-        grid.innerHTML = '';
+        grid.innerHTML = "";
         totalPhotos.textContent = filteredData.length;
 
         filteredData.forEach((img, idx) => {
-          const item = document.createElement('div');
+          const item = document.createElement("div");
           item.className = `gallery-item gallery-item--${img.size}`;
           item.dataset.index = idx;
           item.style.animationDelay = `${idx * 0.07}s`;
@@ -404,14 +503,14 @@
             </div>
           `;
 
-          item.addEventListener('click', () => openLightbox(idx));
+          item.addEventListener("click", () => openLightbox(idx));
           grid.appendChild(item);
         });
 
         // Trigger stagger animation
         requestAnimationFrame(() => {
-          grid.querySelectorAll('.gallery-item').forEach(el => {
-            el.classList.add('gallery-item--visible');
+          grid.querySelectorAll(".gallery-item").forEach((el) => {
+            el.classList.add("gallery-item--visible");
           });
         });
       }
@@ -419,36 +518,51 @@
       // ========================
       // FILTER BUTTONS
       // ========================
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderGallery(btn.dataset.filter);
+      const ceiboBanner = document.getElementById("ceibo-banner");
+      const galleryMain = document.getElementById("gallery-main");
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          if (btn.dataset.filter === "ceibo") {
+            // Mostrar banner Ceibo, ocultar galería
+            ceiboBanner.style.display = "flex";
+            galleryMain.style.display = "none";
+          } else {
+            // Ocultar banner Ceibo, mostrar galería normal
+            ceiboBanner.style.display = "none";
+            galleryMain.style.display = "";
+            renderGallery(btn.dataset.filter);
+          }
         });
       });
 
       // ========================
       // LIGHTBOX
       // ========================
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const lightboxTitle = document.getElementById('lightbox-title');
-      const lightboxDesc = document.getElementById('lightbox-desc');
-      const lightboxCounter = document.getElementById('lightbox-counter');
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxDesc = document.getElementById("lightbox-desc");
+      const lightboxCounter = document.getElementById("lightbox-counter");
       let currentIndex = 0;
 
       function openLightbox(index) {
         currentIndex = index;
         updateLightbox();
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
       }
 
       function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
       }
 
       function updateLightbox() {
@@ -460,9 +574,9 @@
         lightboxCounter.textContent = `${currentIndex + 1} / ${filteredData.length}`;
 
         // Reset animation
-        lightboxImg.style.animation = 'none';
+        lightboxImg.style.animation = "none";
         lightboxImg.offsetHeight;
-        lightboxImg.style.animation = '';
+        lightboxImg.style.animation = "";
       }
 
       function nextImage() {
@@ -471,65 +585,92 @@
       }
 
       function prevImage() {
-        currentIndex = (currentIndex - 1 + filteredData.length) % filteredData.length;
+        currentIndex =
+          (currentIndex - 1 + filteredData.length) % filteredData.length;
         updateLightbox();
       }
 
-      document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-      document.getElementById('lightbox-next').addEventListener('click', nextImage);
-      document.getElementById('lightbox-prev').addEventListener('click', prevImage);
-      document.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+      document
+        .getElementById("lightbox-close")
+        .addEventListener("click", closeLightbox);
+      document
+        .getElementById("lightbox-next")
+        .addEventListener("click", nextImage);
+      document
+        .getElementById("lightbox-prev")
+        .addEventListener("click", prevImage);
+      document
+        .querySelector(".lightbox-backdrop")
+        .addEventListener("click", closeLightbox);
 
       // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "ArrowLeft") prevImage();
       });
 
       // Touch swipe support
       let touchStartX = 0;
-      lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
+      lightbox.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true },
+      );
 
-      lightbox.addEventListener('touchend', (e) => {
-        const diff = e.changedTouches[0].screenX - touchStartX;
-        if (Math.abs(diff) > 50) {
-          diff > 0 ? prevImage() : nextImage();
-        }
-      }, { passive: true });
+      lightbox.addEventListener(
+        "touchend",
+        (e) => {
+          const diff = e.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(diff) > 50) {
+            diff > 0 ? prevImage() : nextImage();
+          }
+        },
+        { passive: true },
+      );
 
       // ========================
       // SCROLL ANIMATIONS
       // ========================
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, { threshold: 0.1 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
 
-      document.querySelectorAll('.filter-section, .gallery-main, footer').forEach(el => {
-        observer.observe(el);
-      });
+      document
+        .querySelectorAll(".filter-section, .gallery-main, footer")
+        .forEach((el) => {
+          observer.observe(el);
+        });
 
       // Parallax hero on scroll
-      window.addEventListener('scroll', () => {
-        const hero = document.getElementById('gallery-hero');
-        const scrolled = window.pageYOffset;
-        if (hero) {
-          const bg = hero.querySelector('.hero-bg img');
-          if (bg) bg.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
-        }
-      }, { passive: true });
+      window.addEventListener(
+        "scroll",
+        () => {
+          const hero = document.getElementById("gallery-hero");
+          const scrolled = window.pageYOffset;
+          if (hero) {
+            const bg = hero.querySelector(".hero-bg img");
+            if (bg)
+              bg.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
+          }
+        },
+        { passive: true },
+      );
 
       // ========================
       // INIT
       // ========================
-      renderGallery('all');
+      renderGallery("all");
     </script>
   </body>
 </html>
